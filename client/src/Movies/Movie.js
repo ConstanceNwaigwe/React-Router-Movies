@@ -4,8 +4,9 @@ import axios from 'axios';
 export default function Movie(props) {
   const [movie, setMovie] = useState();
 
-  let id = 1;
+  //let id = 1;
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
+  let [id, setid] = useState();
 
   useEffect(() => {
     axios
@@ -13,6 +14,8 @@ export default function Movie(props) {
       .then(response => {
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
+
+        setMovie(response.data);
       })
       .catch(error => {
         console.error(error);
